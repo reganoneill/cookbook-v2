@@ -1,0 +1,296 @@
+---
+import Base from '../../layouts/Base.astro';
+import recipes from '../../data/recipes.json';
+
+export function getStaticPaths() {
+  return recipes
+    .filter(r => r.public)
+    .map(recipe => ({
+      params: { slug: recipe.slug },
+      props: { recipe },
+    }));
+}
+
+const { recipe } = Astro.props;
+---
+
+<Base title={`${recipe.title} — The Cookbook`}>
+  <div class="recipe">
+    <div class="recipe-header">
+      <a href="/" class="back-link">← All Recipes</a>
+      <div class="divider">✦</div>
+
+      {recipe.keywords.length > 0 && (
+        <div class="keywords">
+          {recipe.keywords.map(k => (
+            <span class="keyword">{k}</span>
+          ))}
+        </div>
+      )}
+
+      <h1 class="recipe-title">{recipe.title}</h1>
+
+      <div class="meta-row">
+        {recipe.prepTime && (
+          <div class="meta-item">
+            <span class="meta-label">Prep Time</span>
+            <span class="meta-value">{recipe.prepTime}</span>
+          </div>
+        )}
+        {recipe.cookTime && (
+          <div class="meta-item">
+            <span class="meta-label">Cook Time</span>
+            <span class="meta-value">{recipe.cookTime}</span>
+          </div>
+        )}
+        {recipe.difficulty && (
+          <div class="meta-item">
+            <span class="meta-label">Difficulty</span>
+            <span class="meta-value">{recipe.difficulty}</span>
+          </div>
+        )}
+      </div>
+    </div>
+
+    {recipe.notes && (
+      <div class="notes">
+        <p>{recipe.notes}</p>
+      </div>
+    )}
+
+    <div class="recipe-body">
+      <section class="ingredients">
+        <h2 class="section-title">
+          <span class="section-rule"></span>
+          Ingredients
+          <span class="section-rule"></span>
+        </h2>
+        <ul class="ingredient-list">
+          {recipe.ingredientList.map(([name, amount]) => (
+            <li class="ingredient">
+              <span class="ingredient-name">{name}</span>
+              <span class="ingredient-dots"></span>
+              <span class="ingredient-amount">{amount}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="steps">
+        <h2 class="section-title">
+          <span class="section-rule"></span>
+          Directions
+          <span class="section-rule"></span>
+        </h2>
+        <ol class="step-list">
+          {recipe.steps.map((step, i) => (
+            <li class="step">
+              <span class="step-number">{i + 1}</span>
+              <p>{step}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .recipe {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-light);
+    text-decoration: none;
+    margin-bottom: 1rem;
+  }
+  .back-link:hover { color: var(--red); }
+
+  .divider {
+    color: var(--red);
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .recipe-header {
+    text-align: center;
+    border: 2px solid var(--ink);
+    outline: 1px solid var(--ink);
+    outline-offset: -6px;
+    padding: 1.5rem 2rem 1.25rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  /* soft age spot on header corner */
+  .recipe-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 130px 90px at 92% 15%, rgba(101,67,33,0.045) 0%, transparent 65%);
+  }
+
+  .keywords {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .keyword {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--red);
+  }
+
+  .keyword + .keyword::before {
+    content: "✦";
+    margin-right: 0.75rem;
+  }
+
+  .recipe-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--red);
+    padding-top: 0.85rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .meta-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--red);
+  }
+
+  .meta-value {
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+
+  .notes {
+    border-left: 3px solid var(--red);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-family: var(--font-heading);
+    color: var(--ink-light);
+    font-size: 0.9rem;
+  }
+
+  .recipe-body {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (max-width: 600px) {
+    .recipe-body {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--red);
+    opacity: 0.5;
+  }
+
+  .ingredient-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ingredient {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .ingredient-name {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ingredient-dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--ink-light);
+    margin-bottom: 3px;
+    min-width: 1rem;
+  }
+
+  .ingredient-amount {
+    white-space: nowrap;
+    flex-shrink: 0;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  .step-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 1.8rem 1fr;
+    gap: 0.5rem;
+    align-items: start;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--red);
+    line-height: 1;
+    padding-top: 0.1rem;
+  }
+</style>

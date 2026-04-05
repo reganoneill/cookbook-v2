@@ -1,0 +1,206 @@
+---
+interface Props {
+  title?: string;
+}
+const { title = "Rae & Regan's Cookbook" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,700;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- SVG filters for distress effects -->
+    <svg class="svg-defs" aria-hidden="true">
+      <defs>
+        <!-- Roughens edges to look hand-printed -->
+        <filter id="roughen" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="3" seed="2" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <!-- Aged/faded ink look for text -->
+        <filter id="aged-ink">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" seed="5" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-rule"></div>
+        <a href="/" class="site-title">Rae & Regan's Cookbook</a>
+        <div class="header-rule"></div>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="footer-rule"></div>
+      <p>Cookin' since 2020 ✦ No calories were counted in the making of this cookbook</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    /* aged, slightly yellowed paper */
+    --cream: #E8DCC8;
+    --cream-dark: #DDD0B8;
+    --red: #A8281A;
+    --red-faded: #B8402E;
+    --ink: #1E120A;
+    --ink-light: #5A3A28;
+    --font-display: 'Abril Fatface', serif;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Special Elite', cursive;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  html {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cream);
+    position: relative;
+    /* layered paper grain */
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  }
+
+  /* Page-level aging overlays */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background:
+      /* soft watermark blobs at corners */
+      radial-gradient(ellipse 180px 120px at 96% 4%, rgba(139,100,55,0.04) 0%, transparent 65%),
+      radial-gradient(ellipse 140px 180px at 2% 96%, rgba(120,85,40,0.035) 0%, transparent 60%),
+      /* subtle overall age vignette */
+      radial-gradient(ellipse 90% 85% at 50% 50%, transparent 55%, rgba(80,45,15,0.05) 100%);
+  }
+
+  /* worn page edges */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow:
+      inset 0 0 40px rgba(60,30,10,0.12),
+      inset 0 0 8px rgba(60,30,10,0.08);
+  }
+
+  header {
+    padding: 2rem 2rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem 0 1rem;
+    border-top: 3px double var(--red);
+    border-bottom: 3px double var(--red);
+  }
+
+  .header-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--red);
+    opacity: 0.8;
+  }
+
+  .site-title {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    color: var(--red);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    /* slight ink bleed */
+    text-shadow: 1px 1px 0px rgba(101,30,15,0.15), -0.5px 0px 0px rgba(101,30,15,0.08);
+  }
+
+  main {
+    flex: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem 2rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-rule {
+    max-width: 960px;
+    margin: 0 auto 1rem;
+    height: 1px;
+    background: var(--red);
+    opacity: 0.35;
+    filter: url(#roughen);
+  }
+
+  a {
+    color: var(--red);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Distressed card border utility — apply to bordered elements */
+  .distressed {
+    filter: url(#roughen);
+  }
+</style>

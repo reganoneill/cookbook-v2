@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+import recipes from '../data/recipes.json';
+
+const publicRecipes = recipes.filter(r => r.public);
+---
+
+<Base title="Rae & Regan's Cookbook">
+  <div class="page-header">
+    <p class="tagline">Tried & True Recipes from Our Kitchen</p>
+    <div class="divider">✦ ✦ ✦</div>
+  </div>
+
+  <div class="recipe-grid">
+    {publicRecipes.map(recipe => (
+      <a href={`/recipes/${recipe.slug}`} class="recipe-card">
+        <div class="card-inner">
+          <div class="card-keywords">
+            {recipe.keywords.slice(0, 2).map(k => (
+              <span class="keyword">{k}</span>
+            ))}
+          </div>
+          <h2 class="card-title">{recipe.title}</h2>
+          <div class="card-rule"></div>
+          <div class="card-meta">
+            {recipe.prepTime && <span><span class="meta-label">Prep</span> {recipe.prepTime}</span>}
+            {recipe.cookTime && <span><span class="meta-label">Cook</span> {recipe.cookTime}</span>}
+            {recipe.difficulty && <span><span class="meta-label">Difficulty</span> {recipe.difficulty}</span>}
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .tagline {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .divider {
+    color: var(--red);
+    letter-spacing: 0.5em;
+    font-size: 0.85rem;
+  }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .recipe-card {
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+  }
+
+  .card-inner {
+    border: 2px solid var(--ink);
+    outline: 1px solid var(--ink);
+    outline-offset: -5px;
+    padding: 1.25rem 1.25rem 1rem;
+    height: 100%;
+    background: var(--cream);
+    transition: background 0.15s ease;
+    position: relative;
+  }
+
+  /* subtle, varied age spots on cards */
+  .recipe-card:nth-child(3n+1) .card-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 70px 50px at 88% 12%, rgba(101,67,33,0.045) 0%, transparent 70%);
+  }
+  .recipe-card:nth-child(3n+2) .card-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 90px 60px at 8% 88%, rgba(90,55,25,0.04) 0%, transparent 70%);
+  }
+
+  .recipe-card:hover .card-inner {
+    background: var(--cream-dark);
+  }
+
+  .card-keywords {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+    min-height: 1.2rem;
+  }
+
+  .keyword {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--red);
+  }
+
+  .keyword + .keyword::before {
+    content: "✦";
+    margin-right: 0.4rem;
+  }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-rule {
+    height: 1px;
+    background: var(--red);
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-light);
+  }
+
+  .meta-label {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.65rem;
+    color: var(--red);
+    margin-right: 0.3rem;
+  }
+</style>
