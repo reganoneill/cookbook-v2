@@ -1,0 +1,69 @@
+{
+  "title": "Quick Easy Chili",
+  "slug": "quick-easy-chili",
+  "steps": [
+    "Dice up the onion, carrot, garlic, and peppers",
+    "Saute the veggies until they're soft and then add 2 cups of broth, the beans, and spices and mix it all together",
+    "If you're using an instant pot, simply pour the tomato sauce and diced tomatoes on top and close the lid, then pressure cook for 10 minutes (and also use 10 minute natural release method).\nIf not, simply add the tomato sauce and diced tomatoes and let the mixture simmer for at least a couple hours."
+  ],
+  "prepTime": "20 min",
+  "cookTime": "30 min - 2 hours",
+  "difficulty": "easy",
+  "notes": "This recipe is super easy to make with an instant pot but not necessary.\nThe instant pot makes it cook faster but you're also constrained by how much can fit into the pot - if you need to cook a lot, then just make it on the stove top in a large pot.",
+  "public": true,
+  "keywords": [
+    "dinner",
+    "lunch",
+    "favorites"
+  ],
+  "ingredients": [
+    {
+      "name": "White Onion",
+      "amount": "1"
+    },
+    {
+      "name": "Garlic",
+      "amount": "3-5 cloves"
+    },
+    {
+      "name": "Hot Peppers",
+      "amount": "3-5"
+    },
+    {
+      "name": "Carrots",
+      "amount": "1-2"
+    },
+    {
+      "name": "Veggie Broth",
+      "amount": "2 cups"
+    },
+    {
+      "name": "Tomato Sauce",
+      "amount": "8 oz"
+    },
+    {
+      "name": "Tomatoes (Diced)",
+      "amount": "16 oz"
+    },
+    {
+      "name": "Paprika",
+      "amount": "1 tsp"
+    },
+    {
+      "name": "Oregano",
+      "amount": "2 tsp"
+    },
+    {
+      "name": "Smoked Paprika",
+      "amount": "1/2 tsp"
+    },
+    {
+      "name": "Beans",
+      "amount": "2 cups"
+    },
+    {
+      "name": "Corn",
+      "amount": "2 cups"
+    }
+  ]
+}

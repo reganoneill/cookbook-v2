@@ -1,0 +1,54 @@
+{
+  "title": "Garlic Tahini Sauce",
+  "slug": "garlic-tahini-sauce",
+  "steps": [
+    "Combine all ingredients in a jar and shake or whisk until it's smooth."
+  ],
+  "prepTime": "10 min",
+  "cookTime": "0",
+  "difficulty": "easy",
+  "notes": "I used salt, pepper, herbs de provence, and oregano to season but this can be experimented with",
+  "public": true,
+  "keywords": [
+    "favorites",
+    "super healthy"
+  ],
+  "ingredients": [
+    {
+      "name": "Tahini",
+      "amount": "1/4 cup"
+    },
+    {
+      "name": "Olive Oil",
+      "amount": "1/4 cup"
+    },
+    {
+      "name": "Water",
+      "amount": "1/4 cup"
+    },
+    {
+      "name": "Tamari",
+      "amount": "1/8 cup"
+    },
+    {
+      "name": "Apple Cider Vinegar",
+      "amount": "1 tablespoon"
+    },
+    {
+      "name": "Ginger",
+      "amount": "1\" freshly grated"
+    },
+    {
+      "name": "Garlic",
+      "amount": "2-3 cloves"
+    },
+    {
+      "name": "Herbs",
+      "amount": "to taste"
+    },
+    {
+      "name": "Lemon",
+      "amount": "1 tablespoon"
+    }
+  ]
+}

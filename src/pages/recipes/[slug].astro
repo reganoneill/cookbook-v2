@@ -1,11 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
-import recipes from '../../data/recipes.json';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const modules = import.meta.glob('../../data/recipes/*.json', { eager: true });
+  const recipes = Object.values(modules).map((m: any) => m.default);
   return recipes
-    .filter(r => r.public)
-    .map(recipe => ({
+    .filter((r: any) => r.public)
+    .map((recipe: any) => ({
       params: { slug: recipe.slug },
       props: { recipe },
     }));
@@ -66,11 +67,11 @@ const { recipe } = Astro.props;
           <span class="section-rule"></span>
         </h2>
         <ul class="ingredient-list">
-          {recipe.ingredientList.map(([name, amount]) => (
+          {recipe.ingredients.map((ing: any) => (
             <li class="ingredient">
-              <span class="ingredient-name">{name}</span>
+              <span class="ingredient-name">{ing.name}</span>
               <span class="ingredient-dots"></span>
-              <span class="ingredient-amount">{amount}</span>
+              <span class="ingredient-amount">{ing.amount}</span>
             </li>
           ))}
         </ul>

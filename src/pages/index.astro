@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
-import recipes from '../data/recipes.json';
 
-const publicRecipes = recipes.filter(r => r.public);
+const modules = import.meta.glob('../data/recipes/*.json', { eager: true });
+const recipes = Object.values(modules).map((m: any) => m.default);
+const publicRecipes = recipes.filter((r: any) => r.public)
+  .sort((a: any, b: any) => a.title.localeCompare(b.title));
 ---
 
 <Base title="Rae & Regan's Cookbook">

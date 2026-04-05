@@ -1,0 +1,57 @@
+{
+  "title": "Tomato",
+  "slug": "tomato",
+  "steps": [
+    "In a giant soup pot - saute onions and carrots for a few minutes to soften them up",
+    "Add veggie broth - bring to a boil then quickly lower to a simmer and cook till the onion and carrot are soft",
+    "Add cans of diced tomatoes, garlic, spices, salt, pepper, maple syrup, and cashew butter - cook for a few more minutes",
+    "With your immersion blender - blend it all up",
+    "Top it off with several basil leaves and enjoy"
+  ],
+  "prepTime": "10",
+  "cookTime": "30",
+  "difficulty": "easy",
+  "notes": "",
+  "public": false,
+  "keywords": [
+    "lunch"
+  ],
+  "ingredients": [
+    {
+      "name": "Yellow Onion",
+      "amount": "1 large - chopped"
+    },
+    {
+      "name": "Carrots ",
+      "amount": "4 large - chopped"
+    },
+    {
+      "name": "Garlic",
+      "amount": "Several cloves - minced"
+    },
+    {
+      "name": "Diced Tomatoes",
+      "amount": "2 large cans (ish) "
+    },
+    {
+      "name": "Veggie Broth",
+      "amount": "A carton (ish) "
+    },
+    {
+      "name": "Spices, Salt, Pepper",
+      "amount": "Whatever you want - paprika, garlic, onion, oregano, marjoram, etc."
+    },
+    {
+      "name": "Maple syrup",
+      "amount": "A few glugs"
+    },
+    {
+      "name": "Cashew butter",
+      "amount": "A few giant spoonfuls"
+    },
+    {
+      "name": "Basil",
+      "amount": "Several leaves - chopped"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "title": "Cauliflower Sushi Bowls",
+  "slug": "cauliflower-sushi-bowls",
+  "steps": [
+    "Rice the cauliflower in food processor",
+    "Chop red pepper, cucumber, avocado",
+    "Make orange sauce - juice the orange, then blend it with the tomatoes and red pepper flakes",
+    "Lightly steam the cauliflower in steamer basket (don't overdo it!)",
+    "Scoop cauliflower into bowls, top with chopped veggies and orange sauce, season with soy sauce/coconut aminos/sriracha to taste, garnish with nori sheets"
+  ],
+  "prepTime": "45 minutes",
+  "cookTime": "5 minutes",
+  "difficulty": "medium",
+  "notes": "",
+  "public": true,
+  "keywords": [],
+  "ingredients": [
+    {
+      "name": "Small Cauliflower",
+      "amount": "1 head"
+    },
+    {
+      "name": "Red pepper",
+      "amount": "1 "
+    },
+    {
+      "name": "Cucumber",
+      "amount": "1"
+    },
+    {
+      "name": "Avocado",
+      "amount": "1"
+    },
+    {
+      "name": "Nori sheets",
+      "amount": "2"
+    },
+    {
+      "name": "Orange",
+      "amount": "1"
+    },
+    {
+      "name": "Grape or Cherry Tomatoes",
+      "amount": "1 pint"
+    },
+    {
+      "name": "Red pepper flakes",
+      "amount": "to taste"
+    },
+    {
+      "name": "Soy Sauce",
+      "amount": "to taste"
+    },
+    {
+      "name": "Coconut Aminos",
+      "amount": "to taste"
+    },
+    {
+      "name": "Sriracha",
+      "amount": "to taste"
+    }
+  ]
+}

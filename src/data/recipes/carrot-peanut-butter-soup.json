@@ -1,0 +1,75 @@
+{
+  "title": "Carrot Peanut Butter Soup",
+  "slug": "carrot-peanut-butter-soup",
+  "steps": [
+    "If you haven't already, cook quinoa and set aside. ",
+    "Peel and chop carrots. Chop onion. Mince garlic and ginger.",
+    "Saute onion (medium heat) for a few minutes. add the carrots, garlic, and ginger and saute for 5 minutes",
+    "Add veggie broth and bring to boil. Once boiling, lower to simmer and simmer for 20 min or until carrots are soft enough to pierce with a fork.",
+    "Lower heat. Add peanut butter, miso, sriracha, chili flake, tofu and blend with immersion blender. Add water to your desired thickness of soup (if you're adding a lot of water, quickly heat it in electric kettle before you add it in so soup stays hot)",
+    "Add quinoa and garnish with cilantro"
+  ],
+  "prepTime": "30 min",
+  "cookTime": "30 min",
+  "difficulty": "easy",
+  "notes": "",
+  "public": true,
+  "keywords": [
+    "dinner",
+    "lunch"
+  ],
+  "ingredients": [
+    {
+      "name": "Carrots",
+      "amount": "2 bunches"
+    },
+    {
+      "name": "Yellow Onion",
+      "amount": "1 small-medium size"
+    },
+    {
+      "name": "Garlic",
+      "amount": "5 cloves"
+    },
+    {
+      "name": "Ginger",
+      "amount": "1 finger"
+    },
+    {
+      "name": "Peanut Butter",
+      "amount": "3 big spoonfuls"
+    },
+    {
+      "name": "Miso Paste",
+      "amount": "3 big spoonfuls"
+    },
+    {
+      "name": "Sriracha",
+      "amount": "a few squirts"
+    },
+    {
+      "name": "Red Pepper Flakes",
+      "amount": "to taste"
+    },
+    {
+      "name": "Tofu (optional)",
+      "amount": "1/2 block"
+    },
+    {
+      "name": "Veggie Broth",
+      "amount": "1 carton"
+    },
+    {
+      "name": "Water",
+      "amount": "2-3 cups depending on how thick you want"
+    },
+    {
+      "name": "Cooked quinoa",
+      "amount": "2 cups"
+    },
+    {
+      "name": "Cilantro",
+      "amount": "for garnish"
+    }
+  ]
+}

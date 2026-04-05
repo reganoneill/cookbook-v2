@@ -1,0 +1,66 @@
+{
+  "title": "Lazy Black Bean Soup",
+  "slug": "lazy-black-bean-soup",
+  "steps": [
+    "Chop/Dice the celery, carrot, onion, jalapeno, and garlic",
+    "Saute the veggies for 4-5 minutes - then add the spices. I also usually throw in a mixture of onion powder, garlic powder, some oregano, marjoram - whatever you're feeling.",
+    "After veggies have cooked with the spices for a minute or two, add the tomato, beans, corn, and broth",
+    "Keep the temperature high until you see some bubbles on the surface - then reduce to a simmer and cook for another 15-30 minutes."
+  ],
+  "prepTime": "45 min",
+  "cookTime": "30 min",
+  "difficulty": "easy",
+  "notes": "This recipe is super easy because you can really use whatever you have and just eyeball measurements - no precision needed at all - just don't add too much smoked paprika. Also hold off on the jalapeno if you don't want spice.",
+  "public": true,
+  "keywords": [
+    "lunch",
+    "new",
+    "super healthy"
+  ],
+  "ingredients": [
+    {
+      "name": "Black Beans",
+      "amount": "2-4 Cups"
+    },
+    {
+      "name": "Onion",
+      "amount": "1-2"
+    },
+    {
+      "name": "Carrot",
+      "amount": "2-5"
+    },
+    {
+      "name": "Jalapeno",
+      "amount": "1-3"
+    },
+    {
+      "name": "Garlic",
+      "amount": "4-8 cloves"
+    },
+    {
+      "name": "Corn",
+      "amount": "1-3 Cups"
+    },
+    {
+      "name": "Diced Tomato",
+      "amount": "1 Can"
+    },
+    {
+      "name": "Celery",
+      "amount": "1-3 stalks"
+    },
+    {
+      "name": "Paprika",
+      "amount": "1-2 teaspoons"
+    },
+    {
+      "name": "Smoked Paprika",
+      "amount": "0.5 teaspoon"
+    },
+    {
+      "name": "Veggie Broth",
+      "amount": "2-4 cups"
+    }
+  ]
+}

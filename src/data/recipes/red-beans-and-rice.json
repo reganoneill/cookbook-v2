@@ -1,0 +1,19 @@
+{
+  "title": "Red Beans and Rice",
+  "slug": "red-beans-and-rice",
+  "steps": [
+    "Make beans lol"
+  ],
+  "prepTime": "20 minutese",
+  "cookTime": "20 minutes",
+  "difficulty": "easy",
+  "notes": "hi.",
+  "public": false,
+  "keywords": [],
+  "ingredients": [
+    {
+      "name": "Red Beans",
+      "amount": "4 Cups"
+    }
+  ]
+}

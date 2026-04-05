@@ -1,0 +1,76 @@
+{
+  "title": "Cajun Red Beans and Rice",
+  "slug": "cajun-red-beans-and-rice",
+  "steps": [
+    "Soak, then cook the beans. Then cook the rice.",
+    "Heat 2 pans. In one pan, cook sausages. In the other pan, saute celery, onion, green pepper. Once the peppers and onions have cooked for a few minutes, add garlic, bay leaves, veggie broth, seasonings, tomato paste, and beans. If your beans are already cooked through, wait to put them in until later.",
+    "Simmer for at least 15-20 minutes and serve! Garnish with parsley if you have it."
+  ],
+  "prepTime": "2 hours",
+  "cookTime": "30 minutes",
+  "difficulty": "easy",
+  "notes": "",
+  "public": true,
+  "keywords": [
+    "dinner",
+    "favorites"
+  ],
+  "ingredients": [
+    {
+      "name": "Red Beans",
+      "amount": "2 Cups"
+    },
+    {
+      "name": "Rice",
+      "amount": "2 Cups"
+    },
+    {
+      "name": "Celery",
+      "amount": "3-4 Stalks"
+    },
+    {
+      "name": "Yellow Onion",
+      "amount": "1"
+    },
+    {
+      "name": "Green Pepper",
+      "amount": "1"
+    },
+    {
+      "name": "Garlic",
+      "amount": "6 Cloves"
+    },
+    {
+      "name": "Tomato Paste",
+      "amount": "3-4 Tablespoons"
+    },
+    {
+      "name": "Veggie Broth",
+      "amount": "1 Cup"
+    },
+    {
+      "name": "Bay Leaves",
+      "amount": "3"
+    },
+    {
+      "name": "Parsley",
+      "amount": "To Taste"
+    },
+    {
+      "name": "Hot Italian Beyond Sausage",
+      "amount": "1 Package"
+    },
+    {
+      "name": "Paprika",
+      "amount": "to taste"
+    },
+    {
+      "name": "Smoked Paprika",
+      "amount": "to taste"
+    },
+    {
+      "name": "Other seasonings of your choice",
+      "amount": "to taste"
+    }
+  ]
+}

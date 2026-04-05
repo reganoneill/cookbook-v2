@@ -1,0 +1,45 @@
+{
+  "title": "Tofu Ricotta",
+  "slug": "tofu-ricotta",
+  "steps": [
+    "Crumble up the tofu",
+    "Roughly chop the garlic",
+    "Juice the lemon",
+    "Place everything in food processor and blend",
+    "Adjust seasoning to taste"
+  ],
+  "prepTime": "15 min",
+  "cookTime": "0",
+  "difficulty": "easy",
+  "notes": "",
+  "public": true,
+  "keywords": [
+    "favorites"
+  ],
+  "ingredients": [
+    {
+      "name": "Tofu",
+      "amount": "1 block"
+    },
+    {
+      "name": "Garlic",
+      "amount": "4 cloves"
+    },
+    {
+      "name": "Lemon",
+      "amount": "1"
+    },
+    {
+      "name": "Nutritional Yeast",
+      "amount": "2 tablespoons"
+    },
+    {
+      "name": "Miso paste",
+      "amount": "2 tablespoons"
+    },
+    {
+      "name": "Spices of choice",
+      "amount": "a few dashes"
+    }
+  ]
+}

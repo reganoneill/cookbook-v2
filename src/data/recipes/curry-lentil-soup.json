@@ -1,0 +1,71 @@
+{
+  "title": "Curry Lentil Soup",
+  "slug": "curry-lentil-soup",
+  "steps": [
+    "Chop/Dice/Grate the carrots, ginger, potatoes, and onion. Get a saute pan warmed up with oil and then saute the onion, ginger, garlic for a few minutes. Then add the curry powder and cayenne powder and continue to saute for another 1-3 minutes.",
+    "Add veggie stock, lentils, and the rest of the veggies. Bring to a boil and then reduce temp to simmer and cover for around 30 minutes. This should give time for lentils to cook through and carrots and potatoes to soften. May need to add more water or broth.",
+    "Once the lentils, carrots, and potatoes have cooked through, throw in the spinach. I also like adding some peas if I have them around. At this point you also add the coconut milk. Get everything hot and take off heat."
+  ],
+  "prepTime": "30 minutes",
+  "cookTime": "45 minutes",
+  "difficulty": "easy",
+  "notes": "Measurements are approximations. I used a mixture of garam masala powder and regular yellow curry powder combined with some cayenne and it was delicious. Also - using frozed chopped spinach is super convenient.\n\nAlso use whatever veggies sound good to you- cauliflower would probably be great. I've used cherry pepper for some tasty heat.\nEnjoyed with a base of black rice which was delicious.",
+  "public": true,
+  "keywords": [
+    "lunch",
+    "dinner",
+    "new",
+    "favorites",
+    "super healthy"
+  ],
+  "ingredients": [
+    {
+      "name": "Carrot",
+      "amount": "2-3 - chopped"
+    },
+    {
+      "name": "Garlic",
+      "amount": "3 cloves minced"
+    },
+    {
+      "name": "Potato",
+      "amount": "2-4 medium sized, chopped"
+    },
+    {
+      "name": "Ginger",
+      "amount": "2 Tablespoons grated"
+    },
+    {
+      "name": "Spinach",
+      "amount": "4 handfuls"
+    },
+    {
+      "name": "coconut milk",
+      "amount": "16-24 ounces"
+    },
+    {
+      "name": "lentils",
+      "amount": "1 cup"
+    },
+    {
+      "name": "veggie stock",
+      "amount": "3-4 cups"
+    },
+    {
+      "name": "curry powder",
+      "amount": "1 tablespoon"
+    },
+    {
+      "name": "cayenne pepper",
+      "amount": "1/2 teaspoon"
+    },
+    {
+      "name": "oil",
+      "amount": "1-2 tablespoon"
+    },
+    {
+      "name": "onion",
+      "amount": "1-2 diced"
+    }
+  ]
+}

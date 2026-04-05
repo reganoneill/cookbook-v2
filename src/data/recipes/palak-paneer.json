@@ -1,0 +1,82 @@
+{
+  "title": "Palak Paneer",
+  "slug": "palak-paneer",
+  "steps": [
+    "Cook brown rice in instant pot.",
+    "Press tofu. As tofu is pressing, preheat oven to 425.",
+    "Prep veggies - dice up the onion, garlic, serrano pepper, tomato. Finely grate ginger.",
+    "Heat up large pan on medium heat. As pan is heating up, cube the tofu and coat it in coconut aminos, nutritional yeast, some big dashes of curry powder, and salt. Put the tofu on parchment paper (keep each piece of tofu separate) on a baking sheet and bake in oven for 20 minutes.",
+    "Now that your pan has heated up, add high heat oil and onion. Saute until onion softens up. Then add serrano pepper, garlic, ginger, tomato, a few small dashes of cumin, a few bigger dashes of garam masala. Saute about 5 minutes or till it feels right to you (don't forget, you will be blending everything in a blender later).",
+    "While veggies saute, in electric kettle boil a large amount of water (fill kettle to the max). Once boiling, pour the hot water over the spinach in a large bowl. Let sit for about 30 seconds, then drain. ",
+    "In a blender, add the sauteed veggies, wilted spinach, coconut milk, and Thai Kitchen Green Curry Paste. Add more curry paste to taste. Add coconut aminos (or tamari/liquid aminos) to taste. Add extra spices to taste (curry powder, cumin powder, garam masala, etc). Add salt as needed.",
+    "Serve it up! Brown rice, sauce, and tofu."
+  ],
+  "prepTime": "30 minutes",
+  "cookTime": "30 minutes",
+  "difficulty": "medium",
+  "notes": "If fresh tomatoes are not available, you can sub a can of diced tomatoes.\nYou can also try adding some tamari/liquid aminos to this recipe.",
+  "public": true,
+  "keywords": [
+    "dinner",
+    "favorites",
+    "new"
+  ],
+  "ingredients": [
+    {
+      "name": "Spinach",
+      "amount": "5 cups or about 6 oz (about 1/3 of a big plastic box of spinach)"
+    },
+    {
+      "name": "White onion",
+      "amount": "1 medium to large "
+    },
+    {
+      "name": "Garlic",
+      "amount": "4-5 cloves"
+    },
+    {
+      "name": "Ginger",
+      "amount": "About 2 thumbs worth"
+    },
+    {
+      "name": "Extra firm tofu",
+      "amount": "1-2 blocks (depending on how much paneer you want)"
+    },
+    {
+      "name": "Serrano pepper",
+      "amount": "1"
+    },
+    {
+      "name": "Tomato",
+      "amount": "2 medium (I prefer yellow heirloom tomatoes over red for flavor)"
+    },
+    {
+      "name": "Brown rice",
+      "amount": "1-2 cups dry (depending on how much rice you want)"
+    },
+    {
+      "name": "Coconut Milk",
+      "amount": "1/2 can"
+    },
+    {
+      "name": "Thai Kitchen Green Curry Paste",
+      "amount": "2 ish tablespoons"
+    },
+    {
+      "name": "Spices: Curry powder, cumin, and garam masala",
+      "amount": ""
+    },
+    {
+      "name": "Coconut Aminos",
+      "amount": "a few big glugs"
+    },
+    {
+      "name": "Nutritional Yeast",
+      "amount": "a few tablespoons or enough for hearty sprinkling to make the paneer extra cheesy"
+    },
+    {
+      "name": "High heat oil",
+      "amount": "I use avocado oil"
+    }
+  ]
+}

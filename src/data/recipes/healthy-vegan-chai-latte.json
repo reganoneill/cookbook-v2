@@ -1,0 +1,41 @@
+{
+  "title": "Healthy Vegan Chai Latte",
+  "slug": "healthy-vegan-chai-latte",
+  "steps": [
+    "Boil a cup of water",
+    "Fill your mug 3/4 of the way with the hot boiled water, then add in chai powder and mix\n*Exception to this rule is if you're using full fat coconut milk or other thick milk, then use more water",
+    "Fill the rest of the way with nut milk, and add sweetener to taste",
+    "Optional - use milk frother for extra yumminess"
+  ],
+  "prepTime": "5 minutes",
+  "cookTime": "1 minute",
+  "difficulty": "easy",
+  "notes": "",
+  "public": true,
+  "keywords": [
+    "breakfast",
+    "favorites"
+  ],
+  "ingredients": [
+    {
+      "name": "Blue Lotus Chai Powder",
+      "amount": "3-4 HEAPING wooden spoonfuls (using the wooden spoon that comes in the tin)"
+    },
+    {
+      "name": "your favorite mug",
+      "amount": "12 ounce size"
+    },
+    {
+      "name": "Nut Milk of choice",
+      "amount": "Almond, Flax, Coconut, Hemp, etc."
+    },
+    {
+      "name": "Sweetener of choice",
+      "amount": "Stevia, Agave, Maple Syrup, Coconut sugar, etc."
+    },
+    {
+      "name": "Water",
+      "amount": "filtered is best"
+    }
+  ]
+}
