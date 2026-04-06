@@ -1,17 +1,10 @@
 {
-  "title": "Cookie Dough Bitles",
-  "slug": "cookie-dough-bitles",
-  "steps": [
-    "In a big bowl, combine almond butter, maple syrup, coconut flour, cacao nibs, flaxseed meal, vanilla extract, and salt to make the dough.",
-    "Roll the dough into little balls, then roll the balls in the hemp seeds/coconut shreds to give them a texture/coating.",
-    "Juice the lemon and stir it up with the yogurt. Drizzle the cookie dough bites in the lemon/yogurt frosting. (If you want them to be a little sweeter, add stevia or other sweetener to the frosting)",
-    "Put the balls in the fridge and keep them cold for at least one hour before eating. If you want to speed up the process, put them in the freezer but don't forget to take them out after 20 minutes."
-  ],
+  "title": "Cookie Dough Bites",
+  "slug": "cookie-dough-bites",
+  "public": true,
+  "difficulty": "easy",
   "prepTime": "20 minutes",
   "cookTime": "0 minutes",
-  "difficulty": "easy",
-  "notes": "",
-  "public": true,
   "keywords": [
     "favorites",
     "cheating"
@@ -38,7 +31,7 @@
       "amount": "3 tablespoons"
     },
     {
-      "name": "Vanilla Extract ",
+      "name": "Vanilla Extract",
       "amount": "1/2 teaspoon"
     },
     {
@@ -59,11 +52,17 @@
     },
     {
       "name": "Lemon",
-      "amount": "1 "
+      "amount": "1"
     },
     {
       "name": "OPTIONAL - stevia or extra sweetener",
       "amount": "a teeny bit"
     }
+  ],
+  "steps": [
+    "In a big bowl, combine almond butter, maple syrup, coconut flour, cacao nibs, flaxseed meal, vanilla extract, and salt to make the dough.",
+    "Roll the dough into little balls, then roll the balls in the hemp seeds/coconut shreds to give them a texture/coating.",
+    "Juice the lemon and stir it up with the yogurt. Drizzle the cookie dough bites in the lemon/yogurt frosting. (If you want them to be a little sweeter, add stevia or other sweetener to the frosting)",
+    "Put the balls in the fridge and keep them cold for at least one hour before eating. If you want to speed up the process, put them in the freezer but don't forget to take them out after 20 minutes."
   ]
 }
