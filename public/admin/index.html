@@ -1,13 +1,486 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
-    <title>Cookbook Admin</title>
-    <link href="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.css" rel="stylesheet" />
-  </head>
-  <body>
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Cookbook Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Special+Elite&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #E8DCC8;
+      --red: #A8281A;
+      --ink: #1E120A;
+      --ink-light: #5A3A28;
+      --border: #1E120A;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Special Elite', cursive;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--cream); color: var(--ink); font-family: var(--font-body); min-height: 100vh; }
+
+    .screen { display: none; max-width: 860px; margin: 0 auto; padding: 2rem; }
+    .screen.active { display: block; }
+
+    h1 { font-family: var(--font-heading); color: var(--red); font-size: 2rem; margin-bottom: 0.25rem; }
+    h2 { font-family: var(--font-heading); color: var(--ink); font-size: 1.3rem; margin-bottom: 1rem; }
+    .subtitle { color: var(--ink-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem; }
+
+    /* Buttons */
+    button {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.5rem 1.1rem;
+      border: 2px solid var(--ink);
+      background: var(--cream);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    button:hover { background: #DDD0B8; }
+    button.primary { background: var(--red); color: #fff; border-color: var(--red); }
+    button.primary:hover { background: #8B1A10; border-color: #8B1A10; }
+    button.danger { border-color: var(--red); color: var(--red); }
+    button.danger:hover { background: var(--red); color: #fff; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Forms */
+    label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 0.3rem; margin-top: 1rem; }
+    input[type=text], input[type=password], textarea, select {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.5rem 0.6rem;
+      border: 1px solid var(--ink);
+      background: #F0E8D8;
+      color: var(--ink);
+    }
+    input[type=text]:focus, input[type=password]:focus, textarea:focus, select:focus {
+      outline: 2px solid var(--red);
+      outline-offset: 1px;
+    }
+    textarea { resize: vertical; min-height: 4rem; }
+    .hint { font-size: 0.7rem; color: var(--ink-light); margin-top: 0.2rem; }
+
+    /* Login */
+    .login-box {
+      border: 2px solid var(--ink);
+      outline: 1px solid var(--ink);
+      outline-offset: -6px;
+      padding: 2rem;
+      max-width: 480px;
+      margin: 4rem auto;
+    }
+    .login-box p { font-size: 0.85rem; line-height: 1.6; color: var(--ink-light); margin-bottom: 1rem; }
+    .login-box a { color: var(--red); }
+
+    /* Recipe list */
+    .list-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.75rem; }
+    .recipe-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px dotted var(--ink-light);
+    }
+    .recipe-row-title { flex: 1; font-size: 0.95rem; }
+    .recipe-row-meta { font-size: 0.7rem; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.08em; }
+    .badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.1rem 0.4rem; border: 1px solid; }
+    .badge.public { color: var(--red); border-color: var(--red); }
+    .badge.private { color: var(--ink-light); border-color: var(--ink-light); }
+
+    /* Editor */
+    .editor-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.75rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-row { margin-bottom: 0.25rem; }
+
+    /* Dynamic lists */
+    .dynamic-list { margin-top: 0.5rem; }
+    .dynamic-item { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.4rem; }
+    .dynamic-item input, .dynamic-item textarea { flex: 1; }
+    .dynamic-item .amount-input { flex: 0 0 160px; }
+    .remove-btn { flex-shrink: 0; font-size: 0.7rem; padding: 0.4rem 0.6rem; border-color: var(--ink-light); color: var(--ink-light); margin-top: 2px; }
+    .remove-btn:hover { border-color: var(--red); color: var(--red); background: var(--cream); }
+    .add-btn { margin-top: 0.4rem; font-size: 0.7rem; }
+
+    /* Checkbox */
+    .checkbox-row { display: flex; align-items: center; gap: 0.6rem; margin-top: 1rem; }
+    .checkbox-row input[type=checkbox] { width: 1.1rem; height: 1.1rem; cursor: pointer; accent-color: var(--red); }
+    .checkbox-row label { margin: 0; font-size: 0.8rem; cursor: pointer; }
+
+    /* Status message */
+    .status { padding: 0.6rem 1rem; margin-top: 1rem; font-size: 0.8rem; display: none; }
+    .status.success { border: 1px solid green; color: green; background: #f0fff0; }
+    .status.error { border: 1px solid var(--red); color: var(--red); background: #fff5f5; }
+    .status.active { display: block; }
+
+    .editor-actions { display: flex; gap: 0.75rem; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--ink-light); }
+    .spacer { flex: 1; }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="screen-login" class="screen active">
+  <div class="login-box">
+    <h1>Cookbook Admin</h1>
+    <p class="subtitle">Rae & Regan's Cookbook</p>
+    <p>Enter a GitHub Personal Access Token with <strong>repo</strong> (or <strong>contents: read & write</strong> for fine-grained) access to manage recipes.</p>
+    <p>Generate one at <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens</a>.</p>
+    <label for="pat-input">Personal Access Token</label>
+    <input type="password" id="pat-input" placeholder="ghp_..." autocomplete="off" />
+    <div style="margin-top:1rem;">
+      <button class="primary" onclick="login()">Sign In</button>
+    </div>
+    <div id="login-status" class="status"></div>
+  </div>
+</div>
+
+<!-- RECIPE LIST -->
+<div id="screen-list" class="screen">
+  <div class="list-header">
+    <div>
+      <h1>Cookbook Admin</h1>
+      <p class="subtitle">Rae & Regan's Cookbook</p>
+    </div>
+    <div style="display:flex;gap:0.5rem;">
+      <button onclick="showEditor(null)">+ New Recipe</button>
+      <button onclick="logout()">Sign Out</button>
+    </div>
+  </div>
+  <div id="recipe-list-items">Loading...</div>
+</div>
+
+<!-- EDITOR -->
+<div id="screen-editor" class="screen">
+  <div class="editor-header">
+    <div>
+      <h1 id="editor-title">New Recipe</h1>
+      <p class="subtitle">Rae & Regan's Cookbook</p>
+    </div>
+    <button onclick="showList()">← Back to List</button>
+  </div>
+
+  <div class="two-col">
+    <div class="form-row">
+      <label for="f-title">Title</label>
+      <input type="text" id="f-title" oninput="autoSlug()" />
+    </div>
+    <div class="form-row">
+      <label for="f-slug">Slug</label>
+      <input type="text" id="f-slug" />
+      <p class="hint">Used in the URL. Auto-filled from title.</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="form-row">
+      <label for="f-prepTime">Prep Time</label>
+      <input type="text" id="f-prepTime" placeholder="e.g. 20 minutes" />
+    </div>
+    <div class="form-row">
+      <label for="f-cookTime">Cook Time</label>
+      <input type="text" id="f-cookTime" placeholder="e.g. 30 minutes" />
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="form-row">
+      <label for="f-difficulty">Difficulty</label>
+      <select id="f-difficulty">
+        <option value="">— select —</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="f-keywords">Keywords</label>
+      <input type="text" id="f-keywords" placeholder="dinner, favorites, soup" />
+      <p class="hint">Comma-separated</p>
+    </div>
+  </div>
+
+  <div class="checkbox-row">
+    <input type="checkbox" id="f-public" checked />
+    <label for="f-public">Public (visible on the site)</label>
+  </div>
+
+  <div class="form-row" style="margin-top:1.5rem;">
+    <label>Ingredients</label>
+    <div id="ingredients-list" class="dynamic-list"></div>
+    <button class="add-btn" onclick="addIngredient()">+ Add Ingredient</button>
+  </div>
+
+  <div class="form-row" style="margin-top:1.5rem;">
+    <label>Steps</label>
+    <div id="steps-list" class="dynamic-list"></div>
+    <button class="add-btn" onclick="addStep()">+ Add Step</button>
+  </div>
+
+  <div class="form-row">
+    <label for="f-notes">Notes</label>
+    <textarea id="f-notes" rows="3" placeholder="Optional notes or backstory..."></textarea>
+  </div>
+
+  <div class="editor-actions">
+    <button class="primary" onclick="saveRecipe()" id="save-btn">Save Recipe</button>
+    <div class="spacer"></div>
+    <button class="danger" id="delete-btn" onclick="deleteRecipe()" style="display:none">Delete Recipe</button>
+  </div>
+  <div id="editor-status" class="status"></div>
+</div>
+
+<script>
+  const API = 'https://api.github.com';
+  const REPO = 'reganoneill/cookbook-v2';
+  const PATH = 'src/data/recipes';
+  const BRANCH = 'main';
+
+  let pat = localStorage.getItem('cookbook_pat');
+  let editingFile = null;
+  let editingSha = null;
+
+  function encode(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+  function decode(b64) {
+    return decodeURIComponent(escape(atob(b64.replace(/\n/g, ''))));
+  }
+
+  function show(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-' + id).classList.add('active');
+  }
+
+  function setStatus(id, msg, type) {
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.className = 'status active ' + type;
+  }
+  function clearStatus(id) {
+    const el = document.getElementById(id);
+    el.className = 'status';
+  }
+
+  async function ghFetch(path, opts = {}) {
+    const res = await fetch(API + path, {
+      ...opts,
+      headers: {
+        Authorization: 'Bearer ' + pat,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+        ...(opts.headers || {}),
+      },
+      body: opts.body ? JSON.stringify(opts.body) : undefined,
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || `HTTP ${res.status}`);
+    }
+    return res.status === 204 ? null : res.json();
+  }
+
+  // LOGIN
+  async function login() {
+    const val = document.getElementById('pat-input').value.trim();
+    if (!val) return;
+    pat = val;
+    clearStatus('login-status');
+    try {
+      await ghFetch(`/repos/${REPO}/contents/${PATH}`);
+      localStorage.setItem('cookbook_pat', pat);
+      showList();
+    } catch (e) {
+      setStatus('login-status', 'Could not authenticate: ' + e.message, 'error');
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem('cookbook_pat');
+    pat = null;
+    show('login');
+  }
+
+  // LIST
+  async function showList() {
+    show('list');
+    document.getElementById('recipe-list-items').textContent = 'Loading...';
+    try {
+      const files = await ghFetch(`/repos/${REPO}/contents/${PATH}?ref=${BRANCH}`);
+      const jsonFiles = files.filter(f => f.name.endsWith('.json'));
+
+      const rows = jsonFiles
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(f => {
+          const title = f.name.replace('.json', '').replace(/-/g, ' ');
+          return `<div class="recipe-row">
+            <span class="recipe-row-title">${title}</span>
+            <button onclick="showEditor('${f.name}')">Edit</button>
+          </div>`;
+        }).join('');
+      document.getElementById('recipe-list-items').innerHTML = rows || '<p>No recipes yet.</p>';
+    } catch (e) {
+      document.getElementById('recipe-list-items').innerHTML = '<p style="color:red">Error loading recipes: ' + e.message + '</p>';
+    }
+  }
+
+  // EDITOR
+  async function showEditor(filename) {
+    editingFile = filename;
+    editingSha = null;
+    clearStatus('editor-status');
+
+    // reset form
+    ['title','slug','prepTime','cookTime','notes'].forEach(id => document.getElementById('f-'+id).value = '');
+    document.getElementById('f-difficulty').value = '';
+    document.getElementById('f-keywords').value = '';
+    document.getElementById('f-public').checked = true;
+    document.getElementById('ingredients-list').innerHTML = '';
+    document.getElementById('steps-list').innerHTML = '';
+    document.getElementById('delete-btn').style.display = 'none';
+
+    if (filename) {
+      document.getElementById('editor-title').textContent = 'Edit Recipe';
+      document.getElementById('delete-btn').style.display = 'inline-block';
+      try {
+        const file = await ghFetch(`/repos/${REPO}/contents/${PATH}/${filename}?ref=${BRANCH}`);
+        editingSha = file.sha;
+        const recipe = JSON.parse(decode(file.content));
+        document.getElementById('f-title').value = recipe.title || '';
+        document.getElementById('f-slug').value = recipe.slug || '';
+        document.getElementById('f-prepTime').value = recipe.prepTime || '';
+        document.getElementById('f-cookTime').value = recipe.cookTime || '';
+        document.getElementById('f-difficulty').value = recipe.difficulty || '';
+        document.getElementById('f-keywords').value = (recipe.keywords || []).join(', ');
+        document.getElementById('f-public').checked = !!recipe.public;
+        document.getElementById('f-notes').value = recipe.notes || '';
+        (recipe.ingredients || []).forEach(ing => addIngredient(ing.name, ing.amount));
+        (recipe.steps || []).forEach(step => addStep(step));
+      } catch (e) {
+        setStatus('editor-status', 'Error loading recipe: ' + e.message, 'error');
+      }
+    } else {
+      document.getElementById('editor-title').textContent = 'New Recipe';
+      addIngredient();
+      addStep();
+    }
+
+    show('editor');
+  }
+
+  function autoSlug() {
+    const title = document.getElementById('f-title').value;
+    document.getElementById('f-slug').value = title.toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
+
+  function addIngredient(name = '', amount = '') {
+    const div = document.createElement('div');
+    div.className = 'dynamic-item';
+    div.innerHTML = `
+      <input type="text" class="ing-name" placeholder="Ingredient" value="${esc(name)}" />
+      <input type="text" class="ing-amount amount-input" placeholder="Amount" value="${esc(amount)}" />
+      <button class="remove-btn" onclick="this.parentElement.remove()">✕</button>`;
+    document.getElementById('ingredients-list').appendChild(div);
+  }
+
+  function addStep(text = '') {
+    const div = document.createElement('div');
+    div.className = 'dynamic-item';
+    div.innerHTML = `
+      <textarea class="step-text" rows="2" placeholder="Describe this step...">${esc(text)}</textarea>
+      <button class="remove-btn" onclick="this.parentElement.remove()">✕</button>`;
+    document.getElementById('steps-list').appendChild(div);
+  }
+
+  function esc(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  async function saveRecipe() {
+    const btn = document.getElementById('save-btn');
+    btn.disabled = true;
+    clearStatus('editor-status');
+
+    const slug = document.getElementById('f-slug').value.trim();
+    if (!slug) {
+      setStatus('editor-status', 'Slug is required.', 'error');
+      btn.disabled = false;
+      return;
+    }
+
+    const ingredients = [...document.querySelectorAll('#ingredients-list .dynamic-item')].map(row => ({
+      name: row.querySelector('.ing-name').value.trim(),
+      amount: row.querySelector('.ing-amount').value.trim(),
+    })).filter(i => i.name);
+
+    const steps = [...document.querySelectorAll('#steps-list .dynamic-item')].map(row =>
+      row.querySelector('.step-text').value.trim()
+    ).filter(Boolean);
+
+    const recipe = {
+      title: document.getElementById('f-title').value.trim(),
+      slug,
+      public: document.getElementById('f-public').checked,
+      difficulty: document.getElementById('f-difficulty').value || undefined,
+      prepTime: document.getElementById('f-prepTime').value.trim() || undefined,
+      cookTime: document.getElementById('f-cookTime').value.trim() || undefined,
+      keywords: document.getElementById('f-keywords').value.split(',').map(k => k.trim()).filter(Boolean),
+      ingredients,
+      steps,
+      notes: document.getElementById('f-notes').value.trim() || undefined,
+    };
+
+    const filename = editingFile || slug + '.json';
+    const body = {
+      message: editingSha ? `Update recipe: ${recipe.title}` : `Add recipe: ${recipe.title}`,
+      content: encode(JSON.stringify(recipe, null, 2)),
+      branch: BRANCH,
+    };
+    if (editingSha) body.sha = editingSha;
+
+    try {
+      const result = await ghFetch(`/repos/${REPO}/contents/${PATH}/${filename}`, { method: 'PUT', body });
+      editingFile = filename;
+      editingSha = result.content.sha;
+      document.getElementById('delete-btn').style.display = 'inline-block';
+      setStatus('editor-status', '✓ Saved! The site will rebuild in ~1 minute.', 'success');
+    } catch (e) {
+      setStatus('editor-status', 'Save failed: ' + e.message, 'error');
+    }
+
+    btn.disabled = false;
+  }
+
+  async function deleteRecipe() {
+    if (!editingFile || !editingSha) return;
+    if (!confirm('Delete this recipe? This cannot be undone.')) return;
+
+    try {
+      await ghFetch(`/repos/${REPO}/contents/${PATH}/${editingFile}`, {
+        method: 'DELETE',
+        body: { message: `Delete recipe: ${editingFile}`, sha: editingSha, branch: BRANCH },
+      });
+      showList();
+    } catch (e) {
+      setStatus('editor-status', 'Delete failed: ' + e.message, 'error');
+    }
+  }
+
+  // ENTER key on PAT input
+  document.getElementById('pat-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') login();
+  });
+
+  // Auto-login if PAT already stored
+  if (pat) showList();
+</script>
+</body>
 </html>
