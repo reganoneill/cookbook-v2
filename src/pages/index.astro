@@ -10,6 +10,7 @@ const publicRecipes = recipes.filter((r: any) => r.public)
 <Base title="Rae & Regan's Cookbook">
   <div class="page-header">
     <p class="tagline">Tried & True Recipes from Our Kitchen</p>
+    <p class="vegan-note">✦ All recipes are 100% vegan ✦</p>
     <div class="divider">✦ ✦ ✦</div>
   </div>
 
@@ -46,6 +47,15 @@ const publicRecipes = recipes.filter((r: any) => r.public)
     font-style: italic;
     font-size: 1.1rem;
     color: var(--ink-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .vegan-note {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--red);
     margin-bottom: 0.75rem;
   }
 
