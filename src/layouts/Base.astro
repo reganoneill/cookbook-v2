@@ -9,7 +9,7 @@ const { title = "Rae & Regan's Cookbook" } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -158,6 +158,13 @@ const { title = "Rae & Regan's Cookbook" } = Astro.props;
     white-space: nowrap;
     /* slight ink bleed */
     text-shadow: 1px 1px 0px rgba(101,30,15,0.15), -0.5px 0px 0px rgba(101,30,15,0.08);
+  }
+
+  @media (max-width: 480px) {
+    header { padding: 1rem 1rem 0; }
+    .header-inner { gap: 0.75rem; padding: 1rem 0 0.75rem; }
+    .site-title { font-size: 1.6rem; }
+    main { padding: 1.25rem 1rem; }
   }
 
   main {
