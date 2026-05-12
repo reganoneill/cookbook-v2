@@ -207,7 +207,7 @@ const { recipe } = Astro.props;
 
   .recipe-body {
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
     gap: 2rem;
     align-items: start;
   }
@@ -253,22 +253,25 @@ const { recipe } = Astro.props;
   }
 
   .ingredient-name {
-    white-space: nowrap;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .ingredient-dots {
     flex: 1;
+    flex-shrink: 0;
     border-bottom: 1px dotted var(--ink-light);
     margin-bottom: 3px;
-    min-width: 1rem;
+    min-width: 0.5rem;
+    max-width: 2rem;
   }
 
   .ingredient-amount {
-    white-space: nowrap;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
     color: var(--ink-light);
     font-style: italic;
+    text-align: right;
   }
 
   .step-list {
